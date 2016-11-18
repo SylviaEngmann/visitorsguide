@@ -31,9 +31,14 @@
 			//Google Maps
 			var myLatlng = new google.maps.LatLng(lat,lang);
 			var mapOptions = {zoom: 4,center: myLatlng}
-			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			var map = new google.maps.Map(document.getElementById('map-canvas'), {
+				zoom: 10,
+          		disableDefaultUI: true, 
+          		mapTypeId: google.maps.MapTypeId.TERRAIN,});
 			var marker = new google.maps.Marker({position: myLatlng,map: map});
+			map.setCenter(myLatlng);
 			}
+			
 			function onError(error) {
 			alert('code: ' + error.code + '\n' +
 			'message: ' + error.message + '\n');
